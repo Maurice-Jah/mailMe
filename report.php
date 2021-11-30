@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD']== 'POST')
 
     mail($to, $subject, $msg, 'From:' . $email);
 
-    echo "Message Sent";
+    echo "Message Sent Yes!";
 
 
 

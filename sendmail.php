@@ -1,41 +1,25 @@
 <?php
 
 
-$db = mysqli_connect('localhost','root', '', 'mydb');
-
-
 
 $subject = $emailbody = '';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     
-        $from = 'mauricejahwizwid@gmail.com';
+        $from = 'Enyems Limited';
         $subject = $_POST['subject'];
         $emailbody = $_POST['emailbody'];
-
-        $sql = 'SELECT * FROM email_list';
-        $result = mysqli_query($db, $sql);
-
-        while ($row = mysqli_fetch_array($result)){
-            $first_name = $row['firstname'];
-            $last_name = $row['lastname'];
-            $email_name = $row['email'];
+        $email_name = 'mauricejahwizwid@gmail.com';
 
 
-            $msg = "Dear $first_name $last_name, \n $emailbody";
+
+            $msg = "Dear Reader, \n $emailbody";
 
             mail($email_name, $subject, $msg, "From:" . $from);
 
             echo "Your Email was sent to $email_name" . "<br>";
         
         }
-
-    mysqli_close($db);
-
-
-
-   
-}
 
 
 
